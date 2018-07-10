@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 app.get('/', (req, res) => {
@@ -16,6 +18,14 @@ app.get('/galleries', (req, res) => {
 
   res.render('galleries', {galleries});
 });
+
+app.post('/galleries', (req, res) => {
+  res.send('This is the post route!');
+});
+
+app.get("/galleries/new", (req, res) => {
+  res.render("new-gallery.ejs");
+})
 
 
 

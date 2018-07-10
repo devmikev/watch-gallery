@@ -1,3 +1,5 @@
+<% include partials/header %>
+
 <h1>This is the galleries page!</h1>
 
 <% galleries.forEach((gallery) => { %>
@@ -6,3 +8,6 @@
     <img src="<%= gallery.image %>">
   </div>
 <% }); %> 
+
+
+<% include partials/footer %>
