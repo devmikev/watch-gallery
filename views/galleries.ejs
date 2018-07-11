@@ -1,13 +1,35 @@
 <% include partials/header %>
 
-<h1>This is the galleries page!</h1>
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+        <h1>This is the galleries page!</h1>
+        <p>Every collection has a special story.</p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/galleries/new">Add a new Gallery</a>
+        </p>
+    </div>
+  </header>
 
-<% galleries.forEach((gallery) => { %>
-  <div>
-    <h4><%= gallery.name %></h4>
-    <img src="<%= gallery.image %>">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Our top galleries!</h3>
+    </div>
   </div>
-<% }); %> 
 
+  <div class="row">
+      <% galleries.forEach((gallery) => { %>
+        <div class="col-md-3 col-sm-6">
+          <div class="card">
+            <img class="card-img-top" src="<%= gallery.image %>" alt="">
+            <div class="card-body">
+                <h5><%= gallery.name %></h5>
+            </div>
+          </div>
+        </div>
+      <% }); %> 
+  </div>
+  
+</div>
 
 <% include partials/footer %>
