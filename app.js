@@ -23,10 +23,16 @@ app.get('/galleries', (req, res) => {
     if(err) {
       console.log(err);
     } else {
-      res.render('index', {galleries: allGalleries});
+      res.render('galleries/index', {galleries: allGalleries});
     }
-  })
+  });
 });
+
+// NEW - show form to create a new gallery
+app.get("/galleries/new", (req, res) => {
+  res.render("galleries/new");
+});
+
 
 // CREATE - add new gallery to DB
 app.post('/galleries', (req, res) => {
@@ -46,11 +52,6 @@ app.post('/galleries', (req, res) => {
   });
 });
 
-// NEW - show form to create a new gallery
-app.get("/galleries/new", (req, res) => {
-  res.render("new-gallery.ejs");
-});
-
 // SHOW - shows more info about one gallery
 app.get('/galleries/:id', (req, res) => {
   // find the gallery with provided ID
@@ -60,10 +61,24 @@ app.get('/galleries/:id', (req, res) => {
     } else {
       console.log(foundGallery);
       // render show template with that campground
-      res.render('show-gallery', {gallery: foundGallery});
+      res.render('galleries/show', {gallery: foundGallery});
     }
   });
+});
 
+//  =================
+//  WATCH ROUTES
+//  =================
+
+app.get('/galleries/:id/watches/new', (req, res) => {
+  // find gallery by id
+  Gallery.findById(req.params.id, (err, gallery) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.render('watches/new', {gallery});
+    }
+  });
 });
 
 app.listen(3000, () => {

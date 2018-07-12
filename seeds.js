@@ -27,11 +27,14 @@ var seedDB = () => {
             console.log(err);
         }
         console.log("removed galleries!");
-        // Watch.remove({}, function(err) {
-        //     if(err){
-        //         console.log(err);
-        //     }
-            // console.log("removed watches!");
+        
+        // Remove all watches
+        Watch.remove({}, (err) => {
+            if(err){
+                console.log(err);
+            }
+            console.log("removed watches!");
+
             //  add a few galleries
             data.forEach((seed) => {
                 Gallery.create(seed, (err, gallery) => {
@@ -39,7 +42,7 @@ var seedDB = () => {
                         console.log(err)
                     } else {
                         console.log("added a gallery");
-        //                 //create a comment
+                        //create a watch
                         Watch.create(
                             {
                                 brand: "Omega",
@@ -58,10 +61,8 @@ var seedDB = () => {
                     }
                 });
             });
-        // });
-    }) 
-    //add a few comments
-// })
+        });
+    });
 };
  
 module.exports = seedDB;
