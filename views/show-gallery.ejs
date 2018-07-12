@@ -6,5 +6,12 @@
 
 <p><%= gallery.description %></p>
 
+<% gallery.watches.forEach((watch) => { %>
+  <p>
+    <strong><%= watch.brand %></strong> - <%= watch.model %>
+  </p>
+  <img src="<%= watch.image %>">
+
+<% }) %>
 
 <% include partials/footer %>
