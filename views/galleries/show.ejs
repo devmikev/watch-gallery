@@ -6,11 +6,16 @@
 
 <p><%= gallery.description %></p>
 
+<p>
+  <a class='btn btn-success' href="/galleries/<%= gallery._id %>/watches/new">Add New Watch</a>
+</p>
+
 <% gallery.watches.forEach((watch) => { %>
   <p>
     <strong><%= watch.brand %></strong> - <%= watch.model %>
   </p>
   <img src="<%= watch.image %>">
+  <p><%= watch.description %></p>
 
 <% }) %>
 

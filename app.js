@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Gallery = require('./models/gallery');
+var Watch = require('./models/watch');
 var seedDB = require('./seeds');
 
 seedDB();
@@ -77,6 +78,30 @@ app.get('/galleries/:id/watches/new', (req, res) => {
       console.log(err);
     } else {
       res.render('watches/new', {gallery});
+    }
+  });
+});
+
+app.post('/galleries/:id/watches', (req, res) => {
+  // lookup gallery using ID
+  Gallery.findById(req.params.id, (err, gallery) => {
+    if(err) {
+      console.log(err);
+      res.redirect('/galleries');
+    } else {
+      // console.log(req.body.watch);
+      // create new watch
+      Watch.create(req.body.watch, (err, watch) => {
+        if(err) {
+          console.log(err);
+        } else {
+          // connect new watch to gallery
+          gallery.watches.push(watch);
+          gallery.save();
+          // redirect gallery show page
+          res.redirect('/galleries/' + gallery._id);
+        }
+      });
     }
   });
 });
