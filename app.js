@@ -60,8 +60,8 @@ app.get('/galleries/:id', (req, res) => {
     if(err) {
       console.log(err);
     } else {
-      console.log(foundGallery);
-      // render show template with that campground
+      // console.log(foundGallery);
+      // render show template with that gallery
       res.render('galleries/show', {gallery: foundGallery});
     }
   });
@@ -102,6 +102,20 @@ app.post('/galleries/:id/watches', (req, res) => {
           res.redirect('/galleries/' + gallery._id);
         }
       });
+    }
+  });
+});
+
+// SHOW
+app.get('/galleries/:id/watches/:id', (req, res) => {
+  // find the gallery with provided ID
+  Watch.findById(req.params.id).populate("watches").exec((err, foundWatch) => {
+    if(err) {
+      console.log(err);
+    } else {
+      // console.log(foundWatch);
+      // render show template with that gallery
+      res.render('watches/show', {watch: foundWatch});
     }
   });
 });

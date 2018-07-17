@@ -1,22 +1,31 @@
 <% include ../partials/header %>
 
-<p><%= gallery.name %></p>
+<div class="container">
+    <header class="jumbotron">
+      <div class="container">
+          <h1><%= gallery.name %></h1>
+          <p><%= gallery.description %></p>
+          <p>
+              <a class='btn btn-success' href="/galleries/<%= gallery._id %>/watches/new">Add New Watch</a>
+          </p>
+      </div>
+    </header>
+  
+  
+    <div class="row">
+        <% gallery.watches.forEach((watch) => { %>
+          <div class="col-md-3 col-sm-6">
+            <div style="margin-bottom: 25px" class="card text-center">
+              <img class="card-img-top" src="<%= watch.image %>" alt="">
+              <div class="card-body">
+                <h5 class="card-title"><%= watch.model %></h5>
+                <a class="btn btn-primary" href="/galleries/<%= gallery._id + '/watches/' + watch._id %>">More Info</a>
+              </div>
+            </div>
+          </div>
+        <% }); %> 
+    </div>
+  </div>
 
-<img src="<%= gallery.image %>">
-
-<p><%= gallery.description %></p>
-
-<p>
-  <a class='btn btn-success' href="/galleries/<%= gallery._id %>/watches/new">Add New Watch</a>
-</p>
-
-<% gallery.watches.forEach((watch) => { %>
-  <p>
-    <strong><%= watch.brand %></strong> - <%= watch.model %>
-  </p>
-  <img src="<%= watch.image %>">
-  <p><%= watch.description %></p>
-
-<% }) %>
 
 <% include ../partials/footer %>

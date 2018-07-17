@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card bg-dark">
+        <div class="card-header text-white">Details</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Brand: <%= watch.brand %></li>
+            <li class="list-group-item">Model: <%= watch.model %> </li>
+            <li class="list-group-item">Gender: </li>
+            <li class="list-group-item">Watch Label: </li>
+            <li class="list-group-item">Movement: </li>
+            <li class="list-group-item">Engine: </li>
+            <li class="list-group-item">Power Reserve: </li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <img class="card-img" src="<%= watch.image %>" alt="">
+        <div class="card-body">
+            <p class="card-text"><%= watch.description %></p>
+            <a href="/galleries/">Go Back</a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% include ../partials/footer %>
