@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="row justify-content-center">
+  <div class="col-md-12 text-center">
+      <h1>Edit <%= gallery.name %> </h1>
+  </div>
+  <div class="col-xs-12 col-md-6 col-lg-4">
+    <form action="/galleries/<%= gallery._id %>/edit?_method=PUT" method="POST">
+      <div class="form-group">
+        <input class="form-control" type="text" name="name" value="<%= gallery.name %>">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="image" value="<%= gallery.image %>">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="description" value="<%= gallery.description %>>">
+      </div>
+      <div class="form-group">
+          <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+      </div>
+      
+    </form>
+    <a href="/galleries">Go Back</a>
+  </div>
+</div>
+
+
+<% include ../partials/footer %>

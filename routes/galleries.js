@@ -51,4 +51,17 @@ router.get('/galleries/:id', (req, res) => {
   });
 });
 
+// EDIT gallery route
+router.get('/galleries/:id/edit', (req, res) => {
+  Gallery.findById(req.params.id, (err, foundGallery) => {
+    if(err) {
+      res.redirect('/galleries')
+    } else {
+      res.render('galleries/edit', {gallery: foundGallery});
+    }
+  })
+});
+
+// UPDATE Route
+
 module.exports = router;
