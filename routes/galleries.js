@@ -64,4 +64,16 @@ router.get('/galleries/:id/edit', (req, res) => {
 
 // UPDATE Route
 
+router.put('/galleries/:id', (req, res) => {
+  // find and update the correct Gallery
+  Gallery.findByIdAndUpdate(req.params.id, req.body.gallery, (err, updatedGallery) => {
+    if(err) {
+      res.redirect('/galleries');
+    } else {
+      res.redirect('/galleries/' + req.params.id);
+    }
+  });
+  // redirect somewhere(show page)
+})
+
 module.exports = router;
