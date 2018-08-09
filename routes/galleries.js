@@ -78,7 +78,13 @@ router.put('/galleries/:id', (req, res) => {
 
 // Destory Gallery route
 router.delete('/galleries/:id', function(req, res) {
-  res.send('You are trying to delete something!');
+  Gallery.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      res.redirect("/galleries");
+    } else {
+      res.redirect("/galleries");
+    }
+  });
 });
 
 module.exports = router;

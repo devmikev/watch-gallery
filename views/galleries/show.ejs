@@ -5,13 +5,17 @@
       <div class="container">
           <h1><%= gallery.name %></h1>
           <p><%= gallery.description %></p>
-          <p>
+          
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
               <a class='btn btn-success' href="/galleries/<%= gallery._id %>/watches/new">Add New Watch</a>
               <a class='btn btn-warning' href="/galleries/<%= gallery._id %>/edit">Edit Gallery</a>
-          </p>
-          <form action="/galleries/<%= gallery._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
-          </form>
+            </div>
+            <form class="form-inline" id="delete-form" action="/galleries/<%= gallery._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+              
       </div>
     </header>
   
