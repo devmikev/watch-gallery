@@ -9,6 +9,9 @@
               <a class='btn btn-success' href="/galleries/<%= gallery._id %>/watches/new">Add New Watch</a>
               <a class='btn btn-warning' href="/galleries/<%= gallery._id %>/edit">Edit Gallery</a>
           </p>
+          <form action="/galleries/<%= gallery._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
       </div>
     </header>
   
