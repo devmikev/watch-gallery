@@ -21,8 +21,11 @@
         <img class="card-img" src="<%= watch.image %>" alt="">
         <div class="card-body">
             <p class="card-text"><%= watch.description %></p>
-            <a href="/galleries/">Go Back</a>
-          </div>
+            <a href="/galleries/<%= galleryID %>">Go Back</a>
+            <a href="/galleries/<%= galleryID %>/watches/<%= watchID %>/edit">Edit</a>
+
+            
+        </div>
       </div>
     </div>
   </div>
