@@ -66,7 +66,18 @@ router.get("/galleries/:id/watches/:watch_id/edit", function (req, res) {
     } else {
       res.render('watches/edit', {watch: foundWatch, galleryID: gallery, watchID: watch});
     }
+  });
+});
+
+// UPDATE ROUTE /galleries/:id/watches/:watch_id
+router.put("/galleries/:id/watches/:watch_id", function (req, res) {
+  Watch.findByIdAndUpdate(req.params.watch_id, req.body.watch, (err, updatedWatch) => {
+    if (err) {
+      res.redirect('back')
+    } else {
+      res.redirect('/galleries/' + req.params.id + '/watches/' + req.params.watch_id)
+    }
   })
-})
+});
 
 module.exports = router;
