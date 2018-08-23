@@ -80,4 +80,19 @@ router.put("/galleries/:id/watches/:watch_id", function (req, res) {
   })
 });
 
+// DESTROY ROUTE
+  // Gallery Destroy Route: /galleries/:id
+  router.delete('/galleries/:id/watches/:watch_id', (req, res) => {
+    // findByIdAndRemove
+    Watch.findByIdAndRemove(req.params.watch_id, (err) => {
+      if (err) {
+        res.redirect('back')
+      } else {
+        res.redirect('/galleries/' + req.params.id)
+      }
+    })
+  })
+
+  // Watch Destory Route: /galleries/:id/watches/:watch_id
+
 module.exports = router;

@@ -23,6 +23,9 @@
             <p class="card-text"><%= watch.description %></p>
             <a href="/galleries/<%= galleryID %>">Go Back</a>
             <a href="/galleries/<%= galleryID %>/watches/<%= watchID %>/edit">Edit</a>
+            <form action="/galleries/<%= galleryID %>/watches/<%= watchID %>?_method=DELETE" method="POST">
+              <input type="submit" class="btn btn-danger" value="Delete">
+            </form>
 
             
         </div>
