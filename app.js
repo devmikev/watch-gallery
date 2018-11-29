@@ -26,8 +26,8 @@ app.use(indexRoutes);
 app.use(galleryRoutes);
 app.use(watchRoutes);
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(process.env.PORT, process.env.IP, function(){
+  console.log("Watch Gallery Server has started!");
 });
 
 // test
