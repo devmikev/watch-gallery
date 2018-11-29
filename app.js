@@ -14,7 +14,9 @@ var indexRoutes = require('./routes/index');
 seedDB();
 
 
-mongoose.connect('mongodb://localhost/watch_gallery');
+// mongoose.connect('mongodb://localhost/watch_gallery');
+mongoose.connect('mongodb://<mishka>:<mlabspetka1>@ds121624.mlab.com:21624/watchgallery');
+// mongodb://<mishka>:<mlabspetka1>@ds121624.mlab.com:21624/watchgallery
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
