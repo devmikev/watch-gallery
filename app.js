@@ -19,15 +19,23 @@ var indexRoutes = require('./routes/index');
 mongoose.connect('mongodb://mike:voloshin2@ds121624.mlab.com:21624/watchgallery');
 // mongodb://<mishka>:<mlabspetka1>@ds121624.mlab.com:21624/watchgallery
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(methodOverride('_method'));
+
+
 
 app.use(indexRoutes);
 app.use(galleryRoutes);
 app.use(watchRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("Watch Gallery Server has started!");
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log("Watch Gallery Server has started!");
+// });
+
+app.listen(3000, () => {
+  console.log("Running on port 3000");
+})
 
 // test
