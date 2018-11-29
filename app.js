@@ -11,7 +11,7 @@ var watchRoutes = require('./routes/watches');
 var galleryRoutes = require('./routes/galleries');
 var indexRoutes = require('./routes/index');
 
-seedDB();
+// seedDB();
 
 
 // mongoose.connect('mongodb://localhost/watch_gallery');
