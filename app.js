@@ -15,7 +15,8 @@ seedDB();
 
 
 // mongoose.connect('mongodb://localhost/watch_gallery');
-mongoose.connect('mongodb://mishka:mlabspetka1@ds121624.mlab.com:21624/watchgallery');
+// mongoose.connect('mongodb://mishka:mlabspetka1@ds121624.mlab.com:21624/watchgallery');
+mongoose.connect('mongodb://mike:1watches@ds121624.mlab.com:21624/watchgallery');
 // mongodb://<mishka>:<mlabspetka1>@ds121624.mlab.com:21624/watchgallery
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
